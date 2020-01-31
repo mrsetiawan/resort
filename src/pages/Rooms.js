@@ -1,10 +1,11 @@
 import React from 'react'
+import Hero from '../components/Hero'
 
-const Rooms = () => {
+const Rooms = (props) => {
   return (
-    <div>
-      rooms
-    </div>
+    <Hero hero='roomsHero'>
+      tes
+    </Hero>
   )
 }
 

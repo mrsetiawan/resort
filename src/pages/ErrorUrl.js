@@ -1,9 +1,14 @@
 import React from 'react'
+import Hero from '../components/Hero'
 
-export default function ErrorUrl() {
+export default function ErrorUrl(props) {
   return (
-    <div>
-      Page Not Found
-    </div>
+    <Hero>
+      error cuy
+    </Hero>
   )
+}
+
+ErrorUrl.defaultProps = {
+  hero: 'defaultHero'
 }
