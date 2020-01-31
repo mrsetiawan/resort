@@ -1,26 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Fragment } from 'react';
 import './App.css';
+import { Route, Switch } from 'react-router-dom'
+// import MainRouter from './router/MainRouter'
+import Home from './pages/Home'
+import Rooms from './pages/Rooms'
+import SingleRoom from './pages/SingleRoom'
+import ErrorUrl from './pages/ErrorUrl'
+import Navbar from './components/Navbar'
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar />
+      <Switch>
+        <Route exact path='/' component={Home} />
+        <Route path='/rooms' component={Rooms} />
+        <Route path='/rooms/slug' component={SingleRoom} />
+        <Route component={ErrorUrl} />
+      </Switch>
+    </>
   );
 }
 
 export default App;
+
+{/* <BrowserRouter>
+      {MainRouter.map((route, idx) => {
+        return (
+          <Fragment key={idx}>
+            <Route exact 
+              key={idx}
+              path={route.path} 
+              title={route.title} 
+              component={route.component} 
+            />
+          </Fragment>
+        )
+      })}
+    </BrowserRouter> */}
