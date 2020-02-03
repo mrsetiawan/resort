@@ -1,8 +1,8 @@
-import React, { Component,Fragment } from 'react'
+import React, { Component } from 'react'
 import Title from './Title'
 import { FaBeer,FaCocktail,FaHiking,FaShuttleVan } from 'react-icons/fa'
-export default class Services extends Component {
 
+export default class Services extends Component {
   state = {
     services: [
       { icon:<FaCocktail />, 
@@ -45,3 +45,4 @@ export default class Services extends Component {
     )
   }
 }
+
