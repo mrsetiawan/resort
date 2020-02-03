@@ -9,11 +9,12 @@ export default class Features extends Component {
   render() {
     // const value = this.context
     // console.log(value.name)
-    const {name,greeting} = this.context
+    const { featuredRooms: rooms } = this.context
+
     return (
       <section className='features'>
         <Title title='Features' />
-        <p>{greeting} my name is {name}</p>
+        <p> my name is </p>p>
       </section>
     )
   }

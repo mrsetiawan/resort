@@ -8,14 +8,13 @@ class RoomProvider extends Component {
   state = {
     rooms:[],
     sortedRooms:[],
-    featuredRooms:{},
+    featuredRooms:[],
     loading:true
   }
 
   componentDidMount(){
     let rooms = this.handleData(items)
-    let featuredRooms = rooms.filter(room => room.fields == true)
-    console.log(featuredRooms)
+    let featuredRooms = rooms.filter(room => room.featured == true)
     this.setState({
       rooms,
       featuredRooms,
@@ -35,7 +34,7 @@ class RoomProvider extends Component {
   }
 
   render() {
-    console.log(this.state.sortedRooms)
+    console.log(this.state.featuredRooms)
     return (
       <RoomContext.Provider value={{...this.state}}>
         {this.props.children}
