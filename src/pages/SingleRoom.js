@@ -1,12 +1,28 @@
 import React, { Component } from 'react'
+import Hero from '../components/Hero'
+import Banner from '../components/Banner'
+import { Link } from 'react-router-dom'
+import { RoomContext } from '../context'
+import defaultBcg from './../images/room-1.jpeg'
 
-export class SingleRoom extends Component {
-  
+class SingleRoom extends Component {
+
+  static contextType = RoomContext;
+
+  state = {
+    slug:this.props.match.params.slug
+  }
+
   render() {
+    
+    const { getDataRoom } = this.context;
+    const room = getDataRoom(this.state.slug)
     return (
-      <div>
-        single room
-      </div>
+      <Hero>
+        <Banner title='banner title'>
+          tes
+        </Banner>
+      </Hero>
     )
   }
 }

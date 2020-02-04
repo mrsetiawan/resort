@@ -14,7 +14,7 @@ class RoomProvider extends Component {
 
   componentDidMount(){
     let rooms = this.handleData(items)
-    let featuredRooms = rooms.filter(room => room.featured == true)
+    let featuredRooms = rooms.filter(room => room.featured === true)
     this.setState({
       rooms,
       featuredRooms,
@@ -33,10 +33,15 @@ class RoomProvider extends Component {
     return allData
   }
 
+  getDataRoom = slug =>{
+    let tempRoom = [...this.state.rooms]
+    const room = tempRoom.find(room => room.slug === slug)
+    return room
+  }
+
   render() {
-    console.log(this.state.featuredRooms)
     return (
-      <RoomContext.Provider value={{...this.state}}>
+      <RoomContext.Provider value={{ ...this.state, getDataRoom: this.getDataRoom }}>
         {this.props.children}
       </RoomContext.Provider>
     )
