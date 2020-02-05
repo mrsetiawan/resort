@@ -36,17 +36,20 @@ class SingleRoom extends Component {
       capacity, 
       size,
       price, 
-      extract, 
+      extras, 
       breakfast, 
       pets, 
       image} = room
+
+      console.log(room)
       
     const [mainImg, ...defaultBcg] = image
-    // console.log(mainImg)
+    // console.log(image)
+    // console.log(this.state.defaultBcg)
 
     return(
       <>
-        <StyledHero img={image[0] || this.state.defaultBcg}>
+        <StyledHero img={mainImg || this.state.defaultBcg}>
           <Banner title={`${name} room`}>
             <Link to='/rooms' className='btn-primary'>
               Back to rooms
@@ -56,12 +59,34 @@ class SingleRoom extends Component {
 
         <section className='single-room'> 
           <div className='single-room-images'>
-            {image.map((img, idx) => 
+            {defaultBcg.map((img, idx) => 
               <div key={idx}>
                 <img src ={img} alt='single room' />
               </div>
             )}
           </div>
+          <div className='single-room-info'>
+            <article className='desc'>
+              <h3>Details</h3>
+              <p>{description}</p>
+            </article>
+            <article className='info'>
+              <h3>Info</h3>
+              <h6>Price : ${price}</h6>
+              <h6>Size : {size} SQFT</h6>
+              <h6>Max Capacity: {capacity > 1 ? `${capacity} people` : `${capacity} person`}</h6>
+              <h6>{pets ? "pets allowed" : "pets not allowed"}</h6>
+              <h6>{breakfast && "free breakfast"}</h6>
+            </article>
+          </div>
+        </section>
+        <section className='room-extras'>
+          <h6>Extras</h6>
+          <ul className='extras'>
+            {extras.map((item,idx) => 
+              <li key={idx}>- {item}</li>
+            )}
+          </ul>
         </section>
       </>
     )
