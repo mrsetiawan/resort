@@ -18,7 +18,6 @@ class SingleRoom extends Component {
     
     const { getDataRoom } = this.context;
     const room = getDataRoom(this.state.slug)
-
     if(!room){
       return (
         <div className='error'>
@@ -39,10 +38,8 @@ class SingleRoom extends Component {
       extras, 
       breakfast, 
       pets, 
-      image} = room
+      image } = room
 
-      console.log(room)
-      
     const [mainImg, ...defaultBcg] = image
     // console.log(image)
     // console.log(this.state.defaultBcg)

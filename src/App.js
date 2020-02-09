@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouterDom, Route, Switch } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 // import MainRouter from './router/MainRouter'
 import Home from './pages/Home'
 import Rooms from './pages/Rooms'
@@ -23,18 +23,3 @@ const App = () => {
 }
 
 export default App;
-
-{/* <BrowserRouter>
-      {MainRouter.map((route, idx) => {
-        return (
-          <Fragment key={idx}>
-            <Route exact 
-              key={idx}
-              path={route.path} 
-              title={route.title} 
-              component={route.component} 
-            />
-          </Fragment>
-        )
-      })}
-    </BrowserRouter> */}
