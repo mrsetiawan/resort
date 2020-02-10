@@ -59,6 +59,8 @@ class RoomProvider extends Component {
     const value  = event.type === 'checkbox' ? target.checked : target.value 
     const name   = event.target.name
 
+    // console.log(`this is ${value}`)
+
     this.setState({
       [name] : value
     },this.roomsFilter)
@@ -78,21 +80,33 @@ class RoomProvider extends Component {
       pets
     } = this.state
 
-    console.log(`this is ${type}`)
+    console.log(`this is ${capacity}`)
 
     let tempRoom = [...rooms]
+
+    capacity = parseInt(capacity)
     
     if(type !== 'all'){
       tempRoom = tempRoom.filter((room) => room.type === type)
-      console.log(tempRoom)
+      // console.log(tempRoom)
+    }
+
+    if(capacity !== 1){
+      tempRoom = tempRoom.filter((room) => room.capacity >= capacity)
+    }
+
+    if(price === price){
+      tempRoom = tempRoom.filter((room) => room.price === price)
     }
     
     this.setState({
       sortedRooms: tempRoom
     })
+
   }
 
   render() {
+    console.log(this.state)
     return (
       <RoomContext.Provider value={{ ...this.state, getDataRoom: this.getDataRoom, handleChange: this.handleChange }}>
         {this.props.children}
