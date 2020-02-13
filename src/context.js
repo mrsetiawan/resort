@@ -80,9 +80,9 @@ class RoomProvider extends Component {
       pets
     } = this.state
 
-    console.log(`this is ${capacity}`)
-
     let tempRoom = [...rooms]
+
+    console.log(type)
 
     capacity = parseInt(capacity)
     
@@ -106,7 +106,6 @@ class RoomProvider extends Component {
   }
 
   render() {
-    console.log(this.state)
     return (
       <RoomContext.Provider value={{ ...this.state, getDataRoom: this.getDataRoom, handleChange: this.handleChange }}>
         {this.props.children}
