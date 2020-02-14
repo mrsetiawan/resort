@@ -53,12 +53,14 @@ export default function RoomFilter(props) {
             {types}
           </select>
         </div>
+
         <div className='form-group'>
           <label htmlFor="capacity">Capacity</label>
           <select name="capacity" id="capacity" value={capacity} onChange={handleChange}>
             {guest}
           </select>
         </div>
+        
         <div className='form-group'>
           <label htmlFor="price">room price $ {price}</label>
           <input 
@@ -67,10 +69,18 @@ export default function RoomFilter(props) {
             className='form-control'
             id='price' 
             value={price} 
-            min={minSize} 
-            max={maxSize} 
+            min={minPrice} 
+            max={maxPrice} 
             onChange={handleChange} 
           />
+        </div>
+
+        <div className='form-group'>
+          <label>room size</label>
+          <div className='size-inputs'>
+            <input type="number" value={minSize} name='minSize' id='minSize' onChange={handleChange} className='size-input'/>
+            <input type="number" value={maxSize} name="maxSize" id="maxSize" onChange={handleChange} className='size-input' />
+          </div>
         </div>
       </form>
     </section>
